@@ -40,9 +40,9 @@ export default function Home() {
 
               {/* العنوان الرئيسي */}
               <h1 className="text-5xl md:text-6xl lg:text-6xl font-display font-bold text-primary leading-[1.1] mb-6">
-                إتقان <br />
+
                 <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-primary/60">
-                  استراتيجيات التسويق الرقمي
+                  إتقان استراتيجيات التسويق الرقمي
                 </span>
                 <br />
                 <span className="italic font-serif text-accent relative">
@@ -109,7 +109,7 @@ export default function Home() {
               className="lg:w-1/2 flex justify-center items-center perspective-1000"
 
             >
-              <div className="relative">
+              {/* <div className="relative">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-secondary via-white to-accent/10 rounded-full blur-3xl -z-10" />
 
                 <div className="book group relative cursor-pointer">
@@ -145,7 +145,8 @@ export default function Home() {
                     }}
                   />
                 </div>
-              </div>
+              </div> */}
+              <img src="\book.jpg" sizes='' style={{ height: 500 }} />
             </motion.div>
           </div>
         </div>
