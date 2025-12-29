@@ -27,7 +27,7 @@ export function Navigation() {
               href="/"
               className="font-display text-2xl font-bold text-primary tracking-tight"
             >
-              Design<span className="text-accent">Mastery</span>
+              Marketing<span className="text-accent">Mastery</span>
             </Link>
           </div>
 
