@@ -17,12 +17,12 @@ export function WhatsAppButton({ location, className = "", variant = 'primary' }
     });
 
     const phoneNumber = "15550123456";
-    const message = encodeURIComponent("Hello, I want to buy the book Mastering Digital Product Design. Please provide me with the purchase details.");
+    const message = encodeURIComponent("مرحبًا، أريد شراء كتاب إتقان تصميم المنتجات الرقمية. يرجى تزويدي بتفاصيل الشراء.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   const baseStyles = "inline-flex items-center justify-center font-semibold transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2";
-  
+
   const variants = {
     primary: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:-translate-y-1 rounded-full px-8 py-4 shadow-lg shadow-primary/20",
     outline: "border-2 border-primary text-primary hover:bg-primary/5 rounded-full px-6 py-3",
@@ -32,10 +32,11 @@ export function WhatsAppButton({ location, className = "", variant = 'primary' }
   return (
     <button
       onClick={handleBuyClick}
+      dir="rtl"
       className={`${baseStyles} ${variants[variant]} ${className}`}
     >
-      <ExternalLink className="w-5 h-5 mr-2" />
-      Buy Now via WhatsApp
+      <span className="ml-2">اشترِ الآن عبر واتساب</span>
+      <ExternalLink className="w-5 h-5" />
     </button>
   );
 }

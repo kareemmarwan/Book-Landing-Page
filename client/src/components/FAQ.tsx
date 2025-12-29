@@ -4,59 +4,79 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Is this book suitable for beginners?",
-    answer: "Absolutely! The book starts with fundamental concepts and progressively moves to advanced topics. Whether you're just starting or have years of experience, you'll find value."
+    question: "هل هذا الكتاب مناسب للمبتدئين في التسويق؟",
+    answer:
+      "نعم بالتأكيد. يبدأ الكتاب بالمفاهيم الأساسية للتسويق الرقمي مثل استراتيجيات المحتوى والإعلانات، ثم يتدرج إلى تقنيات متقدمة تناسب المبتدئين والمحترفين على حد سواء."
   },
   {
-    question: "What format will I receive?",
-    answer: "You will receive a high-quality PDF optimized for both desktop and mobile reading, along with EPUB and MOBI formats for e-readers."
+    question: "بأي صيغة سأستلم الكتاب؟",
+    answer:
+      "ستحصل على ملف PDF عالي الجودة مهيأ للقراءة على جميع الأجهزة، بالإضافة إلى صيغ EPUB وMOBI لتناسب أجهزة القراءة المختلفة."
   },
   {
-    question: "Does it cover design tools like Figma?",
-    answer: "While the principles apply to any tool, the examples and workflows specifically reference Figma, as it's the industry standard today."
+    question: "هل يحتوي الكتاب على أدوات التسويق الرقمي؟",
+    answer:
+      "نعم، يتضمن الكتاب شرحًا عمليًا لأهم الأدوات الرقمية مثل Google Ads، Facebook Ads، وتحليلات البيانات لتطبيق استراتيجيات التسويق بشكل مباشر."
   },
   {
-    question: "Can I share this with my team?",
-    answer: "The license is for a single user. If you'd like to purchase a team license for multiple seats, please contact us for a bulk discount."
+    question: "هل يمكنني مشاركة الكتاب مع الفريق؟",
+    answer:
+      "الرخصة مخصصة لمستخدم واحد. إذا رغبت بشراء رخصة جماعية لعدة مستخدمين، يمكنك التواصل معنا للحصول على خصم خاص للفريق."
+  },
+  {
+    question: "هل يغطي الكتاب استراتيجيات تحسين المبيعات؟",
+    answer:
+      "نعم، يتناول الكتاب استراتيجيات تحسين المبيعات الرقمية، زيادة التفاعل مع العملاء، وتحليل نتائج الحملات لتحقيق أفضل عائد استثمار."
   }
 ];
+
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-primary text-white">
+    <section
+      id="faq"
+      dir="rtl" // اتجاه عربي كامل
+      className="py-24 bg-primary text-white"
+    >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-display font-bold text-center mb-12">Frequently Asked Questions</h2>
-        
+        <h2 className="text-4xl font-display font-bold text-center mb-12">
+          الأسئلة الشائعة
+        </h2>
+
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="border border-white/10 rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm"
+              className="border border-white/10 rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm "
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex justify-between items-center p-6 text-left hover:bg-white/5 transition-colors"
+                onClick={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
+                className="w-full flex flex-row justify-between items-center p-6 text-right hover:bg-white/5 transition-colors"
               >
                 <span className="font-medium text-lg">{faq.question}</span>
-                <ChevronDown 
-                  className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} 
+                <ChevronDown
+                  className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                    }`}
                 />
               </button>
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
-                    <div className="p-6 pt-0 text-white/70 leading-relaxed">
+                    <div className="p-6 pt-0 text-white/70 leading-relaxed text-right">
                       {faq.answer}
                     </div>
                   </motion.div>
